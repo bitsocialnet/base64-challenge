@@ -1,0 +1,57 @@
+{
+  "name": "@bitsocial/base64-challenge",
+  "version": "0.0.0",
+  "description": "Standalone challenge for pkc-js that rejects publications embedding base64 data, such as data: URI images",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "AGENTS.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "bitsocial",
+    "pkc",
+    "challenge",
+    "base64",
+    "moderation"
+  ],
+  "author": "Bitsocial Forge",
+  "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devDependencies": {
+    "@pkcprotocol/pkc-js": "0.0.135",
+    "@types/node": "25.3.5",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  },
+  "peerDependencies": {
+    "@pkcprotocol/pkc-js": ">=0.0.85"
+  },
+  "peerDependenciesMeta": {
+    "@pkcprotocol/pkc-js": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
