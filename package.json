@@ -1,6 +1,6 @@
 {
   "name": "@bitsocial/base64-challenge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Standalone challenge for pkc-js that rejects publications embedding base64 data, such as data: URI images",
   "type": "module",
   "main": "./dist/index.js",
