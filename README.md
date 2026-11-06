@@ -125,7 +125,7 @@ Bump `version` in `package.json` on `master`. `.github/workflows/publish-challen
 The first version was published by hand, because npm only lets a trusted publisher be configured on a package that exists. It is configured as: publisher GitHub Actions, organization `bitsocialnet`, repository `base64-challenge`, workflow `publish-challenge.yml`, no environment.
 
 ```bash
-npm trust github @bitsocial/base64-challenge --repo bitsocialnet/base64-challenge --file publish-challenge.yml
+npm trust github @bitsocial/base64-challenge --repo bitsocialnet/base64-challenge --file publish-challenge.yml --allow-publish
 ```
 
 ## License
