@@ -26,3 +26,9 @@ Conventions specific to this challenge:
 - `validateChallengeSettings` is sync and does no network. `ChallengeFileFactory` never throws.
 - Test fixtures are typed against pkc-js's challenge-time publication types through the `build*` helpers in
   `test/base64-challenge.test.ts`. Do not cast a publication through `as unknown as`.
+
+Releasing:
+
+- A `version` change in `package.json` on `master` publishes through `publish-challenge.yml` with npm trusted
+  publishing (OIDC). There is no `NPM_TOKEN` secret. Never publish by hand once the trusted publisher is
+  configured: a manual publish has no provenance attestation.

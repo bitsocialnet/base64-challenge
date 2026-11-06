@@ -118,6 +118,16 @@ npm run build
 
 `npm install` needs npm 11. npm 10's arborist crashes on this package's peer dependency set with `Cannot read properties of null (reading 'edgesOut')`.
 
+## Releasing
+
+Bump `version` in `package.json` on `master`. `.github/workflows/publish-challenge.yml` publishes it to npm through trusted publishing (OIDC, with provenance) and skips a version that already exists.
+
+The first version was published by hand, because npm only lets a trusted publisher be configured on a package that exists. It is configured as: publisher GitHub Actions, organization `bitsocialnet`, repository `base64-challenge`, workflow `publish-challenge.yml`, no environment.
+
+```bash
+npm trust github @bitsocial/base64-challenge --repo bitsocialnet/base64-challenge --file publish-challenge.yml
+```
+
 ## License
 
 GPL-3.0-or-later

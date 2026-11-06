@@ -1,6 +1,6 @@
 {
   "name": "@bitsocial/base64-challenge",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Standalone challenge for pkc-js that rejects publications embedding base64 data, such as data: URI images",
   "type": "module",
   "main": "./dist/index.js",
@@ -50,6 +50,17 @@
     "@pkcprotocol/pkc-js": {
       "optional": true
     }
+  },
+  "overrides": {
+    "protobufjs": "7.6.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitsocialnet/base64-challenge.git"
+  },
+  "homepage": "https://github.com/bitsocialnet/base64-challenge#readme",
+  "bugs": {
+    "url": "https://github.com/bitsocialnet/base64-challenge/issues"
   },
   "publishConfig": {
     "access": "public"
