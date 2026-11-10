@@ -120,7 +120,7 @@ npm run build
 
 ## Releasing
 
-Bump `version` in `package.json` on `master`. `.github/workflows/publish-challenge.yml` publishes it to npm through trusted publishing (OIDC, with provenance) and skips a version that already exists.
+Bump `version` in `package.json` on `master`. `.github/workflows/publish-challenge.yml` publishes it to npm through trusted publishing (OIDC, with provenance) and skips a version that already exists. It skips only when the registry confirms that version: if the check fails, it runs `npm publish` anyway, so a registry outage fails the run instead of skipping the release.
 
 The first version was published by hand, because npm only lets a trusted publisher be configured on a package that exists. It is configured as: publisher GitHub Actions, organization `bitsocialnet`, repository `base64-challenge`, workflow `publish-challenge.yml`, no environment.
 
