@@ -38,15 +38,13 @@ jobs:
         run: |
           package_name="$(node -p "require('./package.json').name")"
           package_version="$(node -p "require('./package.json').version")"
-          published_version="$(npm view "$package_name" version 2>/dev/null || true)"
 
           echo "name=$package_name" >> "$GITHUB_OUTPUT"
           echo "version=$package_version" >> "$GITHUB_OUTPUT"
 
-          if [ -z "$published_version" ] && [ "$GITHUB_EVENT_NAME" = "push" ]; then
-              echo "publish=false" >> "$GITHUB_OUTPUT"
-              echo "$package_name is not published yet. Skipping push publish; publish the first version by hand, then configure trusted publishing."
-          elif npm view "$package_name@$package_version" version >/dev/null 2>&1; then
+          # Skip only when the registry confirms this exact version. Any other result, a registry error
+          # included, goes on to npm publish, which fails the run instead of skipping the release.
+          if npm view "$package_name@$package_version" version >/dev/null 2>&1; then
               echo "publish=false" >> "$GITHUB_OUTPUT"
               echo "$package_name@$package_version is already published."
           else
