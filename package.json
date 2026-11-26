@@ -38,7 +38,7 @@
     "node": ">=22.0.0"
   },
   "devDependencies": {
-    "@pkcprotocol/pkc-js": "0.0.135",
+    "@pkcprotocol/pkc-js": "0.0.163",
     "@types/node": "25.3.5",
     "typescript": "5.9.3",
     "vitest": "4.1.12"
